@@ -29,6 +29,8 @@
     </div>
     </nav>
 <!--header-->
-<h1 class="fst-italic position-absolute top-10 start-50 translate-middle" style="top:15%">How the site works!!</h1>
+<p class="fst-italic position-absolute top-10 start-50 translate-middle" style="top:15%;font-size:3em ">How the site works!!</p>
+<p class="position-absolute start-20" style="margin-top:50px; left:20px; font-size:2em">Student</p>
+<p class="position-absolute start-20" style="margin-top:100px; left:20px; font-size:2em">Recours</p>
 </body>
 </html>
