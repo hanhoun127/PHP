@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
     <title>Home</title>
 </head>
-<body class="fst-italic">
+<body class="fst-italic" data-bs-theme="dark">
     <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -26,11 +26,24 @@
 
         </ul>
         </div>
+    <div class="form-check form-switch mx-4">
+        <input type="checkbox" class="form-check-input p-2"
+        id="flexSwitchCheckChecked" checked onclick="switchModes()">
+        <p>Dark Mode</p></div>
     </div>
     </nav>
 <!--header-->
 <p class="fst-italic position-absolute top-10 start-50 translate-middle" style="top:15%;font-size:3em ">How the site works!!</p>
 <p class="position-absolute start-20" style="margin-top:50px; left:20px; font-size:2em">Student</p>
 <p class="position-absolute start-20" style="margin-top:100px; left:20px; font-size:2em">Recours</p>
+
+<!--switch mode function-->
+<script>
+    function switchModes(){
+        var element=document.body;
+        element.dataset.bsTheme=
+        element.dataset.bsTheme == "light" ? "dark" : "light" ;
+    }
+</script>
 </body>
 </html>

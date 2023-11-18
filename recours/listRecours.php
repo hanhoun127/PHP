@@ -27,6 +27,20 @@
         </ul>
         </div>
     </div>
+    <div class="form-check form-switch mx-4">
+        <input type="checkbox" class="form-check-input p-2"
+        id="flexSwitchCheckChecked" checked onclick="switchModes()">
+        <p>Dark Mode</p></div>
+    </div>
     </nav>
+
+<!--switch mode function-->
+    <script>
+    function switchModes(){
+        var element=document.body;
+        element.dataset.bsTheme=
+        element.dataset.bsTheme == "light" ? "dark" : "light" ;
+    }
+    </script>
 </body>
 </html>
