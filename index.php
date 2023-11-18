@@ -21,9 +21,9 @@
             <a href="../index.php" class="nav-link active" aria-current="page">Main Page</a>   
             </li>
 <!--link to student page-->
-             <li class="nav-item"><a href="Student.php" class="nav-link">Student</a></li>
+             <li class="nav-item"><a href="student/Student.php" class="nav-link">Student</a></li>
 <!--link to student page-->
-            <li class="nav-item"><a href="../recours/recours.php" class="nav-link">Recours</a></li>          
+            <li class="nav-item"><a href="recours/recours.php" class="nav-link">Recours</a></li>          
 
         </ul>
         </div>
