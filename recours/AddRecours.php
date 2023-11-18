@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../img/index.png" type="image/x-icon">
     <title>Add Recours</title>
 </head>
-<body  class="fst-italic">
+<body  class="fst-italic" data-bs-theme="dark">
     <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -30,7 +30,7 @@
     <div class="form-check form-switch mx-4">
         <input type="checkbox" class="form-check-input p-2"
         id="flexSwitchCheckChecked" checked onclick="switchModes()">
-        <p>Dark Mode</p></div>
+        <p>Dark</p></div>
     </div>
     </nav>
 

@@ -26,14 +26,14 @@
 
         </ul>
         </div>
-    <div class="form-check form-switch mx-4">
+    <div class="form-check form-switch me-2">
         <input type="checkbox" class="form-check-input p-2"
         id="flexSwitchCheckChecked" checked onclick="switchModes()">
-        <p>Dark Mode</p></div>
+        <p>Dark</p></div>
     </div>
     </nav>
 <!--header-->
-<p class="fst-italic position-absolute top-10 start-50 translate-middle" style="top:15%;font-size:3em ">How the site works!!</p>
+<p class="fst-italic text-center" style="top:15%;font-size:3em ">How the site works!!</p>
 <p class="position-absolute start-20" style="margin-top:50px; left:20px; font-size:2em">Student</p>
 <p class="position-absolute start-20" style="margin-top:100px; left:20px; font-size:2em">Recours</p>
 
