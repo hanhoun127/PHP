@@ -18,8 +18,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-<!--link to main page-->
-            <a href="../index.php" class="nav-link active" aria-current="page">Main Page</a>   
+<!--link to Home-->
+            <a href="../index.php" class="nav-link active" aria-current="page">Home</a>   
             </li>
 <!--link to student page-->
              <li class="nav-item"><a href="Student.php" class="nav-link">Student</a></li>
