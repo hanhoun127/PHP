@@ -18,5 +18,7 @@
 //insert the elements into the students table
         $query=$con->prepare("INSERT INTO students (nom,prenom,email,groupe) VALUES('$fn','$ln','$e','$g')");
         $query->execute() ;
+        //go to listStudent
+        header('location:../student/listStudents.php');
     }
 ?>

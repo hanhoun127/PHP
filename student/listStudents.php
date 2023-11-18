@@ -9,8 +9,8 @@
     <title>Students list</title>
 </head>
 <body  class="fst-italic" data-bs-theme="dark">
-    <!--navigation bar-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!--navigation bar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"style="z-index:5">
     <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="../img/index.png" width="50" height="50"></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,6 +33,16 @@
         <p>Dark</p></div>
     </div>
     </nav>
+    <p class="fst-italic text-center" style="top:15%;font-size:2em ">Students list</p>
+    
+    <table class="table">
+        <tbody>
+            <?php 
+                include("../DBconnection/listS.php");
+            ?>
+        </tbody>
+    </table>
+    
 <!--switch mode function-->
     <script>
     function switchModes(){

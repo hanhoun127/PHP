@@ -10,7 +10,7 @@
 </head>
 <body  class="fst-italic" data-bs-theme="dark">
 <!--navigation bar-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="z-index:5">
     <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="../img/index.png" width="50" height="50"></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

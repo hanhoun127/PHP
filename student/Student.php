@@ -9,8 +9,8 @@
     <title>Student</title>
 </head>
 <body  class="fst-italic" data-bs-theme="dark">
-        <!--navigation bar-->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!--navigation bar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="z-index:5">
     <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="../img/index.png" width="50" height="50"></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,6 +33,35 @@
     </div>
     </nav>
 
+    <div class="row position-absolute top-50 start-50 translate-middle">
+    <div class="col-sm-4 mb-3 mb-sm-0 ">
+        <div class="card">
+            <img src="../img/student.png" class="card-img-top">
+        <div class="card-body text-center">
+            <h5 class="card-title">Add Student</h5>
+            <a href="AddStudent.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <img src="../img/search.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Search Student</h5>
+            <a href="searchStudent.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <img src="../img/liste.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Student List</h5>
+            <a href="listStudents.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    </div>
 <!--switch mode function-->
     <script>
     function switchModes(){
