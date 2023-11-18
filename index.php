@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
     <title>Home</title>
 </head>
-<body>
+<body class="fst-italic">
     <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -28,6 +28,7 @@
         </div>
     </div>
     </nav>
-
+<!--header-->
+<h1 class="fst-italic position-absolute top-10 start-50 translate-middle" style="top:15%">How the site works!!</h1>
 </body>
 </html>

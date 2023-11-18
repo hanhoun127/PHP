@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../img/index.png" type="image/x-icon">
     <title>Recours list</title>
 </head>
-<body>
+<body  class="fst-italic">
         <!--navigation bar-->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">

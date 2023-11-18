@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../img/index.png" type="image/x-icon">
     <title>Student</title>
 </head>
-<body>
+<body  class="fst-italic">
         <!--navigation bar-->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -17,7 +17,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
 <!--link to Home-->
-            <a href="#../index.php" class="nav-link" aria-current="page">Home</a>   
+            <a href="../index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
 <!--link to student page-->
              <li class="nav-item"><a href="Student.php" class="nav-link active">Student</a></li>

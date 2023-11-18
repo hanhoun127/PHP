@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../img/index.png" type="image/x-icon">
     <title>Add Student</title>
 </head>
-<body>
+<body  class="fst-italic">
 <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -32,7 +32,7 @@
      
     <!--Add student form -->
        <form action="../DBconnection/std.php" method="post" class="form-horizontal">
-            <div  style="position:absolute; margin:5%;left:20%;width:50%">
+            <div  class="position-absolute top-50 start-50 translate-middle" style="width:50%">
             <!--students icon-->
                 <img src="../img/student.png"width="80" height="80" style="margin-left:45%" class="mb-2">
             <!--first name label+input-->
