@@ -17,7 +17,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
 <!--link to Home-->
-            <a href="../index.php" class="nav-link" aria-current="page">Home</a>   
+            <a href="../home/index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
 <!--link to student page-->
              <li class="nav-item"><a href="../student/Student.php" class="nav-link">Student</a></li>
@@ -33,7 +33,36 @@
         <p>Dark</p></div>
     </div>
     </nav>
+    <div class="container">
+        <div class="row">
+           <div class="col">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h2 class="display-6 text-center">Recourse list </h2>
+                </div>
+                <div class="card-body">
+                  <table class="table table-border text-center">
+                    <tr class="bg-dark text-white ">
+                        <td>Module</td>
+                        <td>Nature</td>
+                        <td>Note Displayed</td>
+                        <td>Reel Note</td>
+                        <td>Status</td>
+                        <td>Edit</td>
+                    </tr>
+                    <tbody>
+                    <?php 
+                        include("../DBconnection/listR.php");
+                    ?>
+                    </tbody>
+                  </table>
+               
+                </div>
+            </div>
+           </div>
+        </div>
 
+    </div>
 <!--switch mode function-->
     <script>
     function switchModes(){

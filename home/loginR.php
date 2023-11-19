@@ -17,10 +17,10 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
 <!--link to Home-->
-            <a href="../home/index.php" class="nav-link" aria-current="page">Home</a>   
+            <a href="../home/index.php" class="nav-link  active" aria-current="page">Home</a>   
             </li>
 <!--link to student page-->
-             <li class="nav-item"><a href="Student.php" class="nav-link active">Student</a></li>
+             <li class="nav-item"><a href="../student/Student.php" class="nav-link">Student</a></li>
 <!--link to student page-->
             <li class="nav-item"><a href="../recours/recours.php" class="nav-link">Recours</a></li>          
         </ul>
@@ -32,6 +32,30 @@
         <p>Dark</p></div>
     </div>
     </nav>
+
+    <!--Add login responsible form -->
+    <div class="form-horizontal">
+            <img src="../img/manager.png"width="80" height="80" style="margin-left:47%;margin-top:3%">
+            <h2 class="position-absolute top-0 start-50 translate-middle" style="margin-top:15%">Login Form</h2>
+    </div>
+    <form action="../DBconnection/logR.php" method="post" >
+            <div class="position-absolute top-50 start-50 translate-middle" style="width:50%;">
+                <!--username label+input-->
+                <div class="form-group" style="margin-left:25%">
+                    <label class="control-label">Userame</label>
+                    <div class="col-sm-8"  >
+                    <input type="text" class="form-control" placeholder="enter your username..." name="username">
+                    </div></div>
+            <!--password label+input-->
+                <div class="form-group" style="margin-left:25%">
+                    <label class="form-label">Password</label>
+                    <div class="col-sm-8">
+                    <input type="password" class="form-control" placeholder="enter your password..." name="group">
+                </div></div>
+            <!--Add button-->
+                <button type="submit" class="btn btn-success" name="add" style="margin-top:15px;margin-left:25%">Login</button>
+            </div>
+    </form>
 <!--switch mode function-->
     <script>
     function switchModes(){

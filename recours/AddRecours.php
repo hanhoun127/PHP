@@ -17,7 +17,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
 <!--link to Home-->
-            <a href="../index.php" class="nav-link" aria-current="page">Home</a>   
+            <a href="../home/index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
 <!--link to student page-->
              <li class="nav-item"><a href="../student/Student.php" class="nav-link">Student</a></li>
@@ -33,6 +33,55 @@
         <p>Dark</p></div>
     </div>
     </nav>
+    <form  class="form-horizontal" action="../DBconnection/rc.php" method="post">
+            <div  style="position:absolute; margin:5%;left:20%;width:50%">
+            
+                <img src="How to Punctuate Dialogue Tags.png"width="80" height="80" style="margin-left:45%" class="mb-2">
+                <div class="form-group " style="margin-left:25%">
+                <h2>Add Your Recourse</h2>
+                </div>
+                <div class="form-group" style="margin-left:25%">
+                    <label class="form-label">Module</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="enter the module..." name="module">
+                </div></div>
+            
+                <div class="form-group" style="margin-left:25%">
+                    <label class="form-label">Nature</label>
+                    <div class="col-sm-8">
+                    <select class="form-select" aria-label="Default select example" name="nature">
+                    <option value="CC">CC</option>
+                    <option value="Examen">Examen</option>
+                </select>
+                </div></div>
+            
+                <div class="form-group" style="margin-left:25%">
+                    <label class="form-label">Note Displayed</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="enter the Note Displayed..." name="note_affiche">
+                </div></div>
+                
+            
+                <div class="form-group" style="margin-left:25%">
+                    <label class="form-label">Reel Note</label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="enter the Reel Note..." name="note_reel">
+                </div></div>
+
+                <div class="form-group" style="margin-left:25%">
+                    <label class="form-label">Status</label>
+                    <div class="col-sm-8">
+                    <select class="form-select" aria-label="Default select example" name="status">
+                    <option value="favorable">Favorable</option>
+                    <option value="unfavorable">Unfavorable</option>
+                </select>
+                </div></div>
+                
+           
+                <button type="submit" class="btn btn-success" name="add2" style="margin-top:15px;margin-left:25%">Add</button>
+                
+            </div>
+            </form>
 
 <!--switch mode function-->
     <script>

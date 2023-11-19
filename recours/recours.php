@@ -17,7 +17,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
 <!--link to Home-->
-            <a href="../index.php" class="nav-link" aria-current="page">Home</a>   
+            <a href="../home/index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
 <!--link to student page-->
              <li class="nav-item"><a href="../student/Student.php" class="nav-link">Student</a></li>
@@ -33,7 +33,26 @@
         <p>Dark</p></div>
     </div>
     </nav>
-
+    <div class="row position-absolute top-50 start-50 translate-middle">
+    <div class="col-sm-4 mb-3 mb-sm-0 ">
+        <div class="card">
+            <img src="../img/add-file.png" class="card-img-top">
+        <div class="card-body text-center">
+            <h5 class="card-title">Add Recourse</h5>
+            <a href="AddRecours.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <img src="../img/recours.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Recourse List</h5>
+            <a href="listRecours.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    </div>
 <!--switch mode function-->
     <script>
         function switchModes(){
