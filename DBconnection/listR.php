@@ -16,7 +16,7 @@
         <td>".$row['note_affiche']."</td>
         <td>".$row['note_reel']."</td>
         <td>".$row['status']."</td>
-        <td><a href='#' class='btn btn-primary'>Edit</td>
+        <td><a href='editRecours.php' class='btn btn-primary'>Edit</td>
         </tr>";
         }
     }

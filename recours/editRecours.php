@@ -6,7 +6,7 @@
     <!--use bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/index.png" type="image/x-icon">
-    <title>Add Recours</title>
+    <title>Edit Recours</title>
 </head>
 <body  class="fst-italic" data-bs-theme="dark">
 <!--navigation bar-->
@@ -33,8 +33,9 @@
         <p>Dark</p></div>
     </div>
     </nav>
-    <form  class="form-horizontal" action="../DBconnection/rc.php" method="post">
+    <form  class="form-horizontal" action="../DBconnection/edit.php" method="post">
             <div  style="position:absolute; margin:5%;left:20%;width:50%">
+            <fieldset disabled="disabled">
                 <div class="form-group " style="margin-left:30%">
                 <h2>Edit Your Recourse</h2>
                 </div>
@@ -65,7 +66,7 @@
                     <div class="col-sm-8">
                     <input type="text" class="form-control" placeholder="enter the Reel Note..." name="note_reel">
                 </div></div>
-
+            </fieldset>
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">Status</label>
                     <div class="col-sm-8">
@@ -76,7 +77,7 @@
                 </div></div>
                 
            
-                <button type="submit" class="btn btn-success" name="add2" style="margin-top:15px;margin-left:25%">Save</button>
+                <button type="submit" class="btn btn-success" name="edit" style="margin-top:15px;margin-left:25%">Save</button>
                 
             </div>
             </form>
