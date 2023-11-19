@@ -14,15 +14,14 @@ if(isset($_POST['search'])){
 
     $result= $conn->query($select);
     if ($result->num_rows>0) { while ($row=$result->fetch_assoc()) {
-        echo"<tr>
+        echo"<tr><th style='width:60px'><img style='width:60px' src='../img/student.png'></th>
     <td><label>nom:".'&nbsp'.'&nbsp'."</label>".$row['nom']."</br>
     <label>prenom:".'&nbsp'.'&nbsp'."</label>".$row['prenom']."</br>
     <label>Email:".'&nbsp'.'&nbsp'."</label>".$row['email']."</br>
     <label>groupe:".'&nbsp'.'&nbsp'."</label>".$row['groupe']."</br></td>
     </tr>";
-                                                            }
-   
     }
-    header('location:../student/searchStudent.php');
-}
+    
+        
+}}
 ?>

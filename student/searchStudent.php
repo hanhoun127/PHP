@@ -37,7 +37,7 @@
     <img src="../img/search.png" width="90" height="90" style="margin-left:45%" class="mb-2">   
     <p class="fst-italic text-center" style="top:15%;font-size:2em ">Search Students</p>
 <!--search student form -->
-    <form class="d-flex "  action="../DBconnection/search.php" method="post" style="margin-left:1cm;width:100%" >
+    <form class="d-flex "  action="searchStudent.php" method="post" style="margin-left:1cm;width:100%" >
         <!--search input-->
             <input type="search" class="form-control" placeholder="enter first-name or last-name or email......." name="student">
         <!--Add button-->
@@ -47,7 +47,7 @@
     </form>
 </div>
 <!--search results-->
-<div>
+<div style="margin-top:20%">
     <table class="table">
         <tbody>
             <?php 

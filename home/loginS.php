@@ -59,7 +59,7 @@
                     <input type="text" class="form-control" placeholder="enter your Group..." name="group">
                 </div></div>
             <!--Add button-->
-                <button type="submit" class="btn btn-success" name="add" style="margin-top:15px;margin-left:25%">Login</button>
+                <button type="submit" class="btn btn-success" name="loginS" style="margin-top:15px;margin-left:25%">Login</button>
             </div>
     </form>
 <!--switch mode function-->
