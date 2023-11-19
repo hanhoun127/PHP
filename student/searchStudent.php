@@ -17,7 +17,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
 <!--link to Home-->
-            <a href="../home/index.php" class="nav-link" aria-current="page">Home</a>   
+            <a href="../index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
 <!--link to student page-->
              <li class="nav-item"><a href="Student.php" class="nav-link active">Student</a></li>
@@ -32,6 +32,30 @@
         <p>Dark</p></div>
     </div>
     </nav>
+<div style="position:fixed; top:30%; width:30%" class="position-absolute top-10 start-50 translate-middle">
+<!--search icon-->
+    <img src="../img/search.png" width="90" height="90" style="margin-left:45%" class="mb-2">   
+    <p class="fst-italic text-center" style="top:15%;font-size:2em ">Search Students</p>
+<!--search student form -->
+    <form class="d-flex "  action="../DBconnection/search.php" method="post" style="margin-left:1cm;width:100%" >
+        <!--search input-->
+            <input type="search" class="form-control" placeholder="enter first-name or last-name or email......." name="student">
+        <!--Add button-->
+            <button type="submit" class="btn  btn-outline-success" name="search"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg></button>
+    </form>
+</div>
+<!--search results-->
+<div>
+    <table class="table">
+        <tbody>
+            <?php 
+                include("../DBconnection/search.php");
+            ?>
+        </tbody>
+    </table>
+</div>
 <!--switch mode function-->
     <script>
     function switchModes(){
