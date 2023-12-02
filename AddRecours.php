@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add']) ) {
             </li>
 <!--link to responses of recources-->
              <li class="nav-item">
-                <a class="nav-link" id="form2-tab" data-toggle="tab" href="#">Responses of Recourses</a>
+                <a class="nav-link" id="form2-tab" data-toggle="tab" href="recourseResponses.php">Responses of Recourses</a>
             </li> 
         </ul>
         </div>

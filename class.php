@@ -32,11 +32,15 @@ function getStudent($id){
     $ligne = $query->fetch();
     return $ligne;
 }
+//getRecourse 
+function getRecourse($id){
+    
+}
 
 //display recourses list function
     function getRecourses(){
         $select='SELECT students.nom,students.prenom,students.groupe,
-        recours.module,recours.nature,recours.note_affiche,recours.note_reel
+        recours.module,recours.nature,recours.note_affiche,recours.note_reel,recours.status
          FROM recours JOIN students ON recours.id_student=students.id';
         $resault=$this->db->query($select);
         $ligne=$resault->fetchall();
@@ -92,12 +96,13 @@ function getStudent($id){
         return $query->rowCount();
     }
 //favorable&unfavorable set
-function status(){
-    $insert = "INSERT INTO recours (status) VALUES (:s)";
-    $query = $this->db->prepare($insert);
+function status($status, $id){
+    $query = $this->db->prepare("INSERT INTO recours (status) VALUES :s WHERE id_student=:id");
+    $query->bindParam(':id', $id);
     $query->bindParam(':s', $status);
     $query->execute();
 }
+
 //delete student function
     function removeStudent($id){
         $query="DELETE FROM student WHERE id=$id";

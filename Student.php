@@ -26,8 +26,8 @@
                 <a class="nav-link"  href="AddRecours.php">Add Recourse</a>   
             </li>
 <!--link to responses of recources-->
-             <li class="nav-item">
-                <a class="nav-link" id="form2-tab" data-toggle="tab" href="#">Responses of Recourses</a>
+<li class="nav-item">
+                <a class="nav-link"  href="recourseResponses.php">Recourse Responses</a>   
             </li>   
         </ul>
         </div>

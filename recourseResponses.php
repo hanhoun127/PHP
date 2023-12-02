@@ -1,14 +1,3 @@
-<?php  
-require 'class.php' ;
-$std=new StudentRecours();
-$data=$std->getRecourses();
-if (isset($_POST['add']) ) {
-  $status = $_POST['status'];
-  $std->status($status,$_GET['id_student']);
-  
-  header('location:recourseResponses.php');
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +6,7 @@ if (isset($_POST['add']) ) {
     <!--use bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
-    <title>Recours list</title>
+    <title>Recourse Responses list</title>
 </head>
 <body  class="fst-italic" data-bs-theme="dark">
 <!--navigation bar-->
@@ -30,15 +19,15 @@ if (isset($_POST['add']) ) {
 <!--link to Home-->
 <a href="index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
-<!--link to Respobsible page-->
-            <li class="nav-item"><a href="responsible.php" class="nav-link">Responsible</a></li> 
-<!--link to AddStudent page-->
-            <a href="AddStudent.php" class="nav-link" aria-current="page">Add Student</a>   
+<!--link to student page-->
+             <li class="nav-item"><a href="Student.php" class="nav-link">Student</a></li>
+<!--link to Add recourse form-->
+            <li class="nav-item">
+                <a class="nav-link"  href="AddRecours.php">Add Recourse</a>   
             </li>
-<!--link to Studentlist page-->
-            <li class="nav-item"><a href="listStudents.php" class="nav-link">Students List</a></li>          
-<!--link to Recourselist-->
-            <a href="listRecours.php" class="nav-link active" aria-current="page">Recourse List</a>   
+<!--link to responses of recources-->
+             <li class="nav-item">
+                <a class="nav-link  active" id="form2-tab" data-toggle="tab" href="recourseResponses.php">Responses of Recourses</a>
             </li>
         </ul>
         </div>
@@ -49,7 +38,6 @@ if (isset($_POST['add']) ) {
         <p>Dark</p></div>
     </div>
     </nav>
-    <form  method="post">
     <div class="container">
         <div class="row">
            <div class="col">
@@ -67,11 +55,13 @@ if (isset($_POST['add']) ) {
                         <td>Nature</td>
                         <td>Note Displayed</td>
                         <td>Reel Note</td>
-                        <td>Status</td><td></td>
+                        <td>Status</td>
                     </tr>
                     <tbody>
-                    <?php
-                        
+                    <?php 
+                        require 'class.php' ;
+                        $std=new StudentRecours();
+                        $data=$std->getRecourses();
                         foreach ($data as $key => $val) {
                             echo "<tr>
                                 <td>$val[nom]</td>
@@ -80,17 +70,10 @@ if (isset($_POST['add']) ) {
                                 <td>$val[module]</td>
                                 <td>$val[nature]</td>
                                 <td>$val[note_affiche]</td>
-                                <td>$val[note_reel]</td> ";
-            
-        ?>
-        <td>
-                                <select class="form-select" aria-label="Default select example" name="status">
-                                <option value="favorable">favorable</option>
-                                <option value="unfavorable">unfavorable</option>
-                                </select> 
-                                </td><td>
-                                <button type="submit" class="btn btn-success" name="add" >Save</button>
-                                </td></tr>   <?php }
+                                <td>$val[note_reel]</td>
+                                <td>$val[status]</td>
+                            </tr>";
+            }
         ?>
                     </tbody>
                   </table>
@@ -100,7 +83,7 @@ if (isset($_POST['add']) ) {
            </div>
         </div>
 
-    </div></form>
+    </div>
 <!--switch mode function-->
     <script>
     function switchModes(){
