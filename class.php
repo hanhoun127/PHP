@@ -74,26 +74,14 @@ function getRecourse($id){
     }
 //update student infos function
     function updateStudent($id,$fn,$ln,$em,$gp){
-        $update = "UPDATE students SET nom=:nom, prenom=:prenom, email=:email, groupe=:groupe WHERE id=:id";
+        $update = "UPDATE students SET nom=?, prenom=?, email=?, groupe=? WHERE id=?";
         $query = $this->db->prepare($update);
-        $query->bindParam(':nom', $fn);
-        $query->bindParam(':prenom', $ln);
-        $query->bindParam(':email', $em);
-        $query->bindParam(':groupe', $gp);
-        $query->bindParam(':id', $id);
+        $query->bindValue(1, $fn);
+        $query->bindValue(2, $ln);
+        $query->bindValue(3, $em);
+        $query->bindValue(4, $gp);
+        $query->bindValue(5, $id);
         $query->execute();
-    }
-//update recourse function
-    function updateRecourse($id){
-        $update = "UPDATE recours SET module=:module, nature=:nature, note_affiche=:note_affiche, note_reel=:note_reel WHERE id=$id";
-        $query = $this->db->prepare($update);
-        $query->bindParam(':module', $module);
-        $query->bindParam(':nature', $nature);
-        $query->bindParam(':note_affiche', $note_affiche);
-        $query->bindParam(':note_reel', $note_reel);
-        $query->bindParam(':id', $id, PDO::PARAM_INT);
-        $query->execute();
-        return $query->rowCount();
     }
 //favorable&unfavorable set
 function status($status, $id){
@@ -105,7 +93,7 @@ function status($status, $id){
 
 //delete student function
     function removeStudent($id){
-        $query="DELETE FROM student WHERE id=$id";
+        $query="DELETE FROM students WHERE id=$id";
         $resault=$this->db->exec($query);
         return $resault;
     }
