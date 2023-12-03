@@ -22,12 +22,15 @@
 <!--link to Respobsible page-->
             <li class="nav-item"><a href="responsible.php" class="nav-link active">Responsible</a></li>  
 <!--link to AddStudent page-->
-            <a href="AddStudent.php" class="nav-link" aria-current="page">Add Student</a>   
+            <li class="nav-item"><a href="AddStudent.php" class="nav-link" aria-current="page">Add Student</a>   
+            </li>
+<!-- link to search student page  -->
+            <li class="nav-item"><a href="searchStudent.php" class="nav-link" aria-current="page">Search Student</a>   
             </li>
 <!--link to Studentlist page-->
             <li class="nav-item"><a href="listStudents.php" class="nav-link">Students List</a></li>          
 <!--link to Recourselist-->
-            <a href="listRecours.php" class="nav-link" aria-current="page">Recourse List</a>   
+            <li class="nav-item"><a href="listRecours.php" class="nav-link" aria-current="page">Recourse List</a>   
             </li>
 
         </ul>

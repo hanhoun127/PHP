@@ -1,13 +1,20 @@
 <?php
-
 require 'class.php';
- $std=new StudentRecours();
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
+$std=new StudentRecours();
+ $id=isset($_GET['updateid'])?$_GET['updateid']:'';
+ if($id){$data=$std->getStudent($id);}
+ $fn=isset($data['nom'])?$data['nom']:'';
+ $ln=isset($data['prenom'])?$data['prenom']:'';
+ $em=isset($data['email'])?$data['email']:'';
+ $gp=isset($data['groupe'])?$data['groupe']:'';
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
+      $id = isset($_POST['id']) ? $_POST['id'] : '';
       $fn = $_POST['firstname'];
       $ln = $_POST['lastname'];
       $em = $_POST['email'];
       $gp = $_POST['group'];
-      $std->addStudent($fn,$ln,$em,$gp);
+      $std->updateStudent($id,$fn,$ln,$em,$gp);
       header('location:listStudents.php');}
       
 ?> 
@@ -37,9 +44,6 @@ require 'class.php';
 <!--link to AddStudent page-->
             <a href="AddStudent.php" class="nav-link active" aria-current="page">Add Student</a>   
             </li>
-<!-- link to search student page  -->
-            <li class="nav-item"><a href="searchStudent.php" class="nav-link" aria-current="page">Search Student</a>   
-            </li>
 <!--link to Studentlist page-->
             <li class="nav-item"><a href="listStudents.php" class="nav-link ">Students List</a></li>          
 <!--link to Recourselist-->
@@ -55,8 +59,7 @@ require 'class.php';
         <p>Dark</p></div>
     </div>
     </nav>
-
-    <form method="post" class="form-horizontal" action="AddStudent.php">
+    <form method="post" class="form-horizontal" action="updateStudent.php">
             <div  class="position-absolute top-50 start-50 translate-middle" style="width:50%">
             <!--students icon-->
                 <img src="img/student.png"width="80" height="80" style="margin-left:45%" class="mb-2">
@@ -65,31 +68,32 @@ require 'class.php';
                 <div class="form-group" style="margin-left:25%">
                     <label class="control-label">First Name</label>
                     <div class="col-sm-8"  >
-                    <input type="text" class="form-control" placeholder="enter your first name..." name="firstname" required >
+                    <input type="text" class="form-control" placeholder="enter your first name..." name="firstname" required value="<?php echo $fn; ?>">
                     </div></div>
             <!--last name label+input-->
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">last Name</label>
                     <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="enter your last name..." name="lastname" required >
+                    <input type="text" class="form-control" placeholder="enter your last name..." name="lastname" required value="<?php echo $ln; ?>">
                 </div></div>
             <!--email label+input-->
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">Email Address</label>
                     <div class="col-sm-8">
-                    <input type="email" class="form-control" placeholder="enter your Email..." name="email" required >
+                    <input type="email" class="form-control" placeholder="enter your Email..." name="email" required value="<?php echo $em; ?>">
                 </div></div>
             <!--group label+input-->
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">Group</label>
                     <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="enter your Group..." name="group" required >
+                    <input type="text" class="form-control" placeholder="enter your Group..." name="group" required value="<?php echo $gp; ?>">
                 </div></div>
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
             <!--Add button-->
-                <button type="submit" class="btn btn-success" name="add" style="margin-top:15px;margin-left:25%"><svg xmlns="http://www.w3.org/2000/svg" style="margin-right:10px" width="20" height="20" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                <button type="submit" class="btn btn-success" name="update" style="margin-top:15px;margin-left:25%"><svg xmlns="http://www.w3.org/2000/svg" style="margin-right:10px" width="20" height="20" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
                 <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                 <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
-                </svg> Add</button>
+                </svg> Save</button>
             </div>
             </form>
 

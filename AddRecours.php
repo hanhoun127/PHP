@@ -63,24 +63,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add']) ) {
                 <div class="form-group" style="margin-left:25%">
                     <label class="control-label">First Name</label>
                     <div class="col-sm-8"  >
-                    <input type="text" class="form-control" placeholder="enter your first name..." name="firstname">
+                    <input type="text" class="form-control" placeholder="enter your first name..." name="firstname" required>
                     </div></div>
             <!--last name label+input-->
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">last Name</label>
                     <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="enter your last name..." name="lastname">
+                    <input type="text" class="form-control" placeholder="enter your last name..." name="lastname" required>
                 </div></div>
             <!--group label+input-->
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">Group</label>
                     <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="enter your Group..." name="group">
+                    <input type="text" class="form-control" placeholder="enter your Group..." name="group" required>
                 </div></div>
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">Module</label>
                     <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="enter the module..." name="module">
+                    <input type="text" class="form-control" placeholder="enter the module..." name="module" required>
                 </div></div>
             
                 <div class="form-group" style="margin-left:25%">
@@ -95,14 +95,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add']) ) {
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">Note Displayed</label>
                     <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="enter the Note Displayed..." name="note_affiche">
+                    <input type="text" class="form-control" placeholder="enter the Note Displayed..." name="note_affiche" required>
                 </div></div>
                 
             
                 <div class="form-group" style="margin-left:25%">
                     <label class="form-label">Reel Note</label>
                     <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="enter the Reel Note..." name="note_reel">
+                    <input type="text" class="form-control" placeholder="enter the Reel Note..." name="note_reel" required>
                 </div></div>
 
                 

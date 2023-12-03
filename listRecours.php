@@ -2,12 +2,6 @@
 require 'class.php' ;
 $std=new StudentRecours();
 $data=$std->getRecourses();
-if (isset($_POST['add']) ) {
-  $status = $_POST['status'];
-  $std->status($status,$_GET['id_student']);
-  
-  header('location:recourseResponses.php');
-  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +28,9 @@ if (isset($_POST['add']) ) {
             <li class="nav-item"><a href="responsible.php" class="nav-link">Responsible</a></li> 
 <!--link to AddStudent page-->
             <a href="AddStudent.php" class="nav-link" aria-current="page">Add Student</a>   
+            </li>
+<!-- link to search student page  -->
+            <li class="nav-item"><a href="searchStudent.php" class="nav-link" aria-current="page">Search Student</a>   
             </li>
 <!--link to Studentlist page-->
             <li class="nav-item"><a href="listStudents.php" class="nav-link">Students List</a></li>          
@@ -71,8 +68,11 @@ if (isset($_POST['add']) ) {
                     </tr>
                     <tbody>
                     <?php
-                        
-                        foreach ($data as $key => $val) {
+                        if (isset($_POST['add']) ) {
+                            $status = $_POST['status'];
+                            header('location:recourseResponses.php');
+                            }
+                        foreach ($data as $val) {
                             echo "<tr>
                                 <td>$val[nom]</td>
                                 <td>$val[prenom]</td>
@@ -80,17 +80,16 @@ if (isset($_POST['add']) ) {
                                 <td>$val[module]</td>
                                 <td>$val[nature]</td>
                                 <td>$val[note_affiche]</td>
-                                <td>$val[note_reel]</td> ";
-            
-        ?>
-        <td>
-                                <select class="form-select" aria-label="Default select example" name="status">
-                                <option value="favorable">favorable</option>
-                                <option value="unfavorable">unfavorable</option>
+                                <td>$val[note_reel]</td> 
+                                <td>
+                                <select class='form-select' aria-label='Default select example' name='status'>
+                                <option value='favorable'>favorable</option>
+                                <option value='unfavorable'>unfavorable</option>
                                 </select> 
                                 </td><td>
-                                <button type="submit" class="btn btn-success" name="add" >Save</button>
-                                </td></tr>   <?php }
+                                <button class='btn btn-success' name='add'><a href='listRecours.php?id=$val[id]' style='text-decoration:none;color:white'>Save</a></button>
+                                </td></tr>  ";  }
+            
         ?>
                     </tbody>
                   </table>

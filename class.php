@@ -32,14 +32,11 @@ function getStudent($id){
     $ligne = $query->fetch();
     return $ligne;
 }
-//getRecourse 
-function getRecourse($id){
-    
-}
+
 
 //display recourses list function
     function getRecourses(){
-        $select='SELECT students.nom,students.prenom,students.groupe,
+        $select='SELECT students.nom,students.prenom,students.groupe,recours.id,
         recours.module,recours.nature,recours.note_affiche,recours.note_reel,recours.status
          FROM recours JOIN students ON recours.id_student=students.id';
         $resault=$this->db->query($select);
@@ -74,18 +71,17 @@ function getRecourse($id){
     }
 //update student infos function
     function updateStudent($id,$fn,$ln,$em,$gp){
-        $update = "UPDATE students SET nom=?, prenom=?, email=?, groupe=? WHERE id=?";
-        $query = $this->db->prepare($update);
-        $query->bindValue(1, $fn);
-        $query->bindValue(2, $ln);
-        $query->bindValue(3, $em);
-        $query->bindValue(4, $gp);
-        $query->bindValue(5, $id);
+        $query = $this->db->prepare("UPDATE students SET nom=:fn, prenom=:ln, email=:em, groupe=:gp WHERE id=:id");
+        $query->bindParam(':id', $id);
+        $query->bindParam(':fn', $fn);
+        $query->bindParam(':ln', $ln);
+        $query->bindParam(':em', $em);
+        $query->bindParam(':gp', $gp);
         $query->execute();
     }
 //favorable&unfavorable set
 function status($status, $id){
-    $query = $this->db->prepare("INSERT INTO recours (status) VALUES :s WHERE id_student=:id");
+    $query = $this->db->prepare("INSERT INTO recours (status) VALUES :s WHERE id=:id");
     $query->bindParam(':id', $id);
     $query->bindParam(':s', $status);
     $query->execute();
@@ -97,56 +93,42 @@ function status($status, $id){
         $resault=$this->db->exec($query);
         return $resault;
     }
-//email validate function
-    function validerEmail($email) {
-        // Utiliser une expression régulière pour valider l'adresse e-mail
-        $pattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+// //email validate function
+//     function validerEmail($email) {
+//         // Utiliser une expression régulière pour valider l'adresse e-mail
+//         $pattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
     
-        // Utiliser la fonction preg_match pour faire la correspondance avec l'expression régulière
-        if (preg_match($pattern, $email)) {
-            // L'adresse e-mail est valide
-            return true;
-        } else {
-            // L'adresse e-mail n'est pas valide
-            return false;
-        }
-    }
-//name validate function
-    function validername($name) {
-        // Utiliser une expression régulière pour valider le nom 
-        $pattern = '/^[a-zA-Z]$/';
+//         // Utiliser la fonction preg_match pour faire la correspondance avec l'expression régulière
+//         if (preg_match($pattern, $email)) {
+//             // L'adresse e-mail est valide
+//             return true;
+//         } else {
+//             // L'adresse e-mail n'est pas valide
+//             return false;
+//         }
+//     }
+// //name validate function
+//     function validername($name) {
+//         // Utiliser une expression régulière pour valider le nom 
+//         $pattern = '/^[a-zA-Z]$/';
 
-        // Utiliser la fonction preg_match pour faire la correspondance avec l'expression régulière
-        if (preg_match($pattern, $name)) {
-            // Le nom est valide
-            return true;
-        } else {
-            // Le nom n'est pas valide
-            return false;
-        }
-    }
-//function search student
-    // function searchStudent($searchTerm){
-    //     if(isset($_POST['search'])){
-    
-    //         $input= $_POST[$searchTerm];
-        
-    //         $select="SELECT * FROM students where ((nom LIKE '%$input%' ) OR (prenom LIKE '%$input%') OR ( email LIKE '%$input%')) ";
-            
-        
-    //         $result= $this->db->query($select);
-    //         if ($result->num_rows>0) { while ($row=$result->fetch_assoc()) {
-    //             echo"<tr><th style='width:60px'><img style='width:60px' src='../img/student.png'></th>
-    //         <td><label>nom:".'&nbsp'.'&nbsp'."</label>".$row['nom']."</br>
-    //         <label>prenom:".'&nbsp'.'&nbsp'."</label>".$row['prenom']."</br>
-    //         <label>Email:".'&nbsp'.'&nbsp'."</label>".$row['email']."</br>
-    //         <label>groupe:".'&nbsp'.'&nbsp'."</label>".$row['groupe']."</br></td>
-    //         </tr>";
-    //         }
-            
-                
-    //     }} 
-    // }
+//         // Utiliser la fonction preg_match pour faire la correspondance avec l'expression régulière
+//         if (preg_match($pattern, $name)) {
+//             // Le nom est valide
+//             return true;
+//         } else {
+//             // Le nom n'est pas valide
+//             return false;
+//         }
+//     }
+// function search student
+function searchStudent($input)
+{
+    $select = "SELECT * FROM students where ((nom LIKE '%$input%' ) OR (prenom LIKE '%$input%') OR ( email LIKE '%$input%@gmail.com')) ";
+    $result = $this->db->query($select);
+    $ligne = $result->fetchAll(PDO::FETCH_ASSOC); // Fetch all results as associative array
+    return $ligne;
+}
     }
 
 ?>
