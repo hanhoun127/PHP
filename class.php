@@ -81,7 +81,7 @@ function getStudent($id){
     }
 //favorable&unfavorable set
 function status($status, $id){
-    $query = $this->db->prepare("INSERT INTO recours (status) VALUES :s WHERE id=:id");
+    $query = $this->db->prepare("UPDATE recours SET status = :s WHERE id = :id");
     $query->bindParam(':id', $id);
     $query->bindParam(':s', $status);
     $query->execute();

@@ -1,7 +1,14 @@
 <?php  
-require 'class.php' ;
-$std=new StudentRecours();
-$data=$std->getRecourses();
+require 'class.php';
+$std = new StudentRecours();
+$data = $std->getRecourses();
+$id=isset($_GET['id'])?$_GET['id']:'';
+if (isset($_POST['add'])) {
+    $id = isset($_POST['id']) ? $_POST['id'] : '';
+    $status = $_POST['status'];
+    $std->status($status, $id);
+    header('location: recourseResponses.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,10 +75,7 @@ $data=$std->getRecourses();
                     </tr>
                     <tbody>
                     <?php
-                        if (isset($_POST['add']) ) {
-                            $status = $_POST['status'];
-                            header('location:recourseResponses.php');
-                            }
+                        
                         foreach ($data as $val) {
                             echo "<tr>
                                 <td>$val[nom]</td>
@@ -82,13 +86,13 @@ $data=$std->getRecourses();
                                 <td>$val[note_affiche]</td>
                                 <td>$val[note_reel]</td> 
                                 <td>
+                                <form action='listRecours.php'>
                                 <select class='form-select' aria-label='Default select example' name='status'>
                                 <option value='favorable'>favorable</option>
                                 <option value='unfavorable'>unfavorable</option>
-                                </select> 
-                                </td><td>
-                                <button class='btn btn-success' name='add'><a href='listRecours.php?id=$val[id]' style='text-decoration:none;color:white'>Save</a></button>
-                                </td></tr>  ";  }
+                                </select> <td>
+                                <button class='btn btn-success' type='submit' name='add'><a href='listRecours.php?id=$val[id]' style='text-decoration:none;color:white'>Save</a></button>
+                                </td><form></td></tr>  ";  }
             
         ?>
                     </tbody>
