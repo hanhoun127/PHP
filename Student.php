@@ -6,6 +6,7 @@
     <!--use bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Student</title>
 </head>
 <body  class="fst-italic" data-bs-theme="dark">
@@ -38,7 +39,7 @@
         <p>Dark</p></div>
     </div>
     </nav>
-
+<h1 class="row position-absolute top-50 start-50 translate-middle ">How Does The Site Work?</h1>
     
 <!--switch mode function-->
     <script>
@@ -52,5 +53,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
 </body>
 </html>

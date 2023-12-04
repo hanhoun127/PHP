@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add']) ) {
   $gp = $_POST['group'];
   $std->addRecourse($m,$n,$na,$nr,$fn,$ln,$gp);
   
-  header('location:listRecours.php');
+  header('location:AddRecours.php');
   }
 ?>
 <!DOCTYPE html>

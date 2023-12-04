@@ -1,15 +1,4 @@
-<?php  
-require 'class.php';
-$std = new StudentRecours();
-$data = $std->getRecourses();
-$id=isset($_GET['id'])?$_GET['id']:'';
-if (isset($_POST['add'])) {
-    $id = isset($_POST['id']) ? $_POST['id'] : '';
-    $status = $_POST['status'];
-    $std->status($status, $id);
-    header('location: recourseResponses.php');
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +42,16 @@ if (isset($_POST['add'])) {
         <p>Dark</p></div>
     </div>
     </nav>
-    <form  method="post">
+    <?php  
+require 'class.php';
+$std = new StudentRecours();
+ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
+    $id = isset($_POST['id']) ? $_POST['id'] : '';
+    $status = $_POST['status'];
+    $std->status($status, $id);
+}
+
+?> 
     <div class="container">
         <div class="row">
            <div class="col">
@@ -61,49 +59,55 @@ if (isset($_POST['add'])) {
                 <div class="card-header">
                     <h2 class="display-6 text-center">Recourse list </h2>
                 </div>
-                <div class="card-body">
-                  <table class="table table-border text-center">
-                    <tr class="bg-dark text-white ">
-                        <td>First Name</td>
-                        <td>Last Name</td>
-                        <td>Group</td>
-                        <td>Module</td>
-                        <td>Nature</td>
-                        <td>Note Displayed</td>
-                        <td>Reel Note</td>
-                        <td>Status</td><td></td>
-                    </tr>
-                    <tbody>
-                    <?php
-                        
+            <div class="card-body">
+            <table class="table table-border text-center">
+                        <tr class="bg-dark text-white">
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Group</td>
+                            <td>Module</td>
+                            <td>Nature</td>
+                            <td>Note Displayed</td>
+                            <td>Reel Note</td>
+                            <td>Status</td>
+                            <td></td>
+                        </tr>
+                        <tbody>
+                         <?php
+                        $data = $std->getRecourses();
                         foreach ($data as $val) {
-                            echo "<tr>
-                                <td>$val[nom]</td>
-                                <td>$val[prenom]</td>
-                                <td>$val[groupe]</td>
-                                <td>$val[module]</td>
-                                <td>$val[nature]</td>
-                                <td>$val[note_affiche]</td>
-                                <td>$val[note_reel]</td> 
-                                <td>
-                                <form action='listRecours.php'>
-                                <select class='form-select' aria-label='Default select example' name='status'>
-                                <option value='favorable'>favorable</option>
-                                <option value='unfavorable'>unfavorable</option>
-                                </select> <td>
-                                <button class='btn btn-success' type='submit' name='add'><a href='listRecours.php?id=$val[id]' style='text-decoration:none;color:white'>Save</a></button>
-                                </td><form></td></tr>  ";  }
-            
-        ?>
-                    </tbody>
-                  </table>
+                        echo "
+                            <tr>
+                            <td>$val[nom]</td>
+                            <td>$val[prenom]</td>
+                            <td>$val[groupe]</td>
+                            <td>$val[module]</td>
+                            <td>$val[nature]</td>
+                            <td>$val[note_affiche]</td>
+                            <td>$val[note_reel]</td>
+                            <td>";?>
+                        <form method='post' action='listRecours.php'>
+                            <select class="form-select" aria-label="Default select example" name="status">
+                               <option value="favorable">favorable</option>
+                               <option value="unfavorable">unfavorable</option>
+                            </select></td>
+                           <?php echo "<input type='hidden' name='id' value='$val[id]'>"?>
+                            <td>
+                                <button class="btn btn-success" type="submit" name="add">Save</button>
+                            </td>
+                        
+                         </form></tr>
+                        <?php }?>
+                            
+                        </tbody>
+                    </table>
                
                 </div>
             </div>
            </div>
         </div>
 
-    </div></form>
+    </div>
 <!--switch mode function-->
     <script>
     function switchModes(){

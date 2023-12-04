@@ -7,7 +7,7 @@ $std=new StudentRecours();
  $ln=isset($data['prenom'])?$data['prenom']:'';
  $em=isset($data['email'])?$data['email']:'';
  $gp=isset($data['groupe'])?$data['groupe']:'';
-
+var_dump($_POST);
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
       $id = isset($_POST['id']) ? $_POST['id'] : '';
       $fn = $_POST['firstname'];
@@ -15,8 +15,8 @@ $std=new StudentRecours();
       $em = $_POST['email'];
       $gp = $_POST['group'];
       $std->updateStudent($id,$fn,$ln,$em,$gp);
-      header('location:listStudents.php');}
-      
+      header('location:listStudents.php');
+      }
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +26,7 @@ $std=new StudentRecours();
     <!--use bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Add Student</title>
 </head>
 <body  class="fst-italic" data-bs-theme="dark">
@@ -105,5 +106,6 @@ $std=new StudentRecours();
         element.dataset.bsTheme == "light" ? "dark" : "light" ;
     }
     </script>
+    <script src="sweetalert2.min.js"></script>
 </body>
 </html>
