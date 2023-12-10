@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `recours` (
   `nature` enum('CC','Examen') NOT NULL COMMENT 'nature: cc ou examen',
   `note_affiche` int(11) NOT NULL,
   `note_reel` int(11) NOT NULL,
-  `status` char(11) NOT NULL COMMENT '1:favorable\r\n2:unfavorable',
+  `status` varchar(11) NOT NULL COMMENT '1:favorable\r\n2:unfavorable',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

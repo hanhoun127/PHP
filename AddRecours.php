@@ -10,8 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add']) ) {
   $ln = $_POST['lastname'];
   $gp = $_POST['group'];
   $std->addRecourse($m,$n,$na,$nr,$fn,$ln,$gp);
-  
-  header('location:AddRecours.php');
   }
 ?>
 <!DOCTYPE html>
@@ -34,9 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add']) ) {
             <li class="nav-item">
 <!--link to Home-->
             <a href="index.php" class="nav-link" aria-current="page">Home</a>   
-            </li>
-<!--link to student page-->
-             <li class="nav-item"><a href="Student.php" class="nav-link">Student</a></li>     
+            </li>  
 <!--link to Add recourse form-->
 <li class="nav-item">
                 <a class="nav-link active"  href="AddRecours.php">Add Recourse</a>   

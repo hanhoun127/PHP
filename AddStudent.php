@@ -8,7 +8,7 @@ require 'class.php';
       $em = $_POST['email'];
       $gp = $_POST['group'];
       $std->addStudent($fn,$ln,$em,$gp);
-      header('location:listStudents.php');}
+      }
       
 ?> 
 <!DOCTYPE html>
@@ -32,8 +32,6 @@ require 'class.php';
 <!--link to Home-->
             <a href="index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
-<!--link to Respobsible page-->
-            <li class="nav-item"><a href="responsible.php" class="nav-link">Responsible</a></li>       
 <!--link to AddStudent page-->
             <a href="AddStudent.php" class="nav-link active" aria-current="page">Add Student</a>   
             </li>

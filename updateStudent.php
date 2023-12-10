@@ -7,7 +7,6 @@ $std=new StudentRecours();
  $ln=isset($data['prenom'])?$data['prenom']:'';
  $em=isset($data['email'])?$data['email']:'';
  $gp=isset($data['groupe'])?$data['groupe']:'';
-var_dump($_POST);
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
       $id = isset($_POST['id']) ? $_POST['id'] : '';
       $fn = $_POST['firstname'];
@@ -15,7 +14,6 @@ var_dump($_POST);
       $em = $_POST['email'];
       $gp = $_POST['group'];
       $std->updateStudent($id,$fn,$ln,$em,$gp);
-      header('location:listStudents.php');
       }
 ?> 
 <!DOCTYPE html>
@@ -39,9 +37,7 @@ var_dump($_POST);
             <li class="nav-item">
 <!--link to Home-->
             <a href="index.php" class="nav-link" aria-current="page">Home</a>   
-            </li>
-<!--link to Respobsible page-->
-            <li class="nav-item"><a href="responsible.php" class="nav-link">Responsible</a></li>       
+            </li>      
 <!--link to AddStudent page-->
             <a href="AddStudent.php" class="nav-link active" aria-current="page">Add Student</a>   
             </li>

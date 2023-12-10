@@ -27,8 +27,6 @@ if(isset($_GET['id'])){
 <!--link to Home-->
             <a href="index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
-<!--link to Respobsible page-->
-            <li class="nav-item"><a href="responsible.php" class="nav-link">Responsible</a></li> 
 <!--link to AddStudent page-->
             <a href="AddStudent.php" class="nav-link" aria-current="page">Add Student</a>   
             </li>
@@ -83,11 +81,9 @@ if(isset($_GET['id'])){
                 </svg></a>
                 </td>
                 </tr>
-           <?php }
-        ?>
+           <?php }?>
         </tbody>
-    </table>
-    
+    </table> 
 <!--switch mode function-->
     <script>
     function switchModes(){

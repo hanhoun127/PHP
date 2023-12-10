@@ -45,6 +45,7 @@ function getStudent($id){
     }
 //add student fucntion
     function addStudent($fn,$ln,$em,$gp){
+        try{
         //?<-marqueur interogatif
         $query=$this->db->prepare("INSERT INTO students (nom,prenom,email,groupe) VALUES(?,?,?,?)");
         //bindValue()<-requetes MySQL prepares avec PDO ,va elle associer directement une valeur a un paramatere
@@ -52,10 +53,21 @@ function getStudent($id){
         $query->bindValue(2, $ln);
         $query->bindValue(3, $em);
         $query->bindValue(4, $gp);
-        $query->execute();
+
+        if ($query->execute()) {
+            echo "<script>alert('Student added successfully');</script>";
+            echo "<script>window.location.href = 'listStudents.php';</script>";
+        }else{
+            echo "<script>alert('failed');</script>";
+            echo "<script>window.location.href = 'addStudent.php';</script>";
+        }} catch (PDOException $e) {
+            echo "<script>alert('Error');</script>";
+            echo "<script>window.location.href = 'addStudent.php';</script>";
+        }
     }
 //add Recourse fucntion
     function addRecourse($module, $nature, $note_affiche, $note_reel, $fn, $ln, $g){
+        try{
         //:fn<-marqueur nomme
         $query = $this->db->prepare("INSERT INTO recours (id_student,module, nature, note_affiche, note_reel) 
         VALUES ((SELECT id FROM students WHERE nom=:fn AND prenom=:ln AND groupe=:g),:module,:nature,:note_affiche, :note_reel)  ");
@@ -67,62 +79,82 @@ function getStudent($id){
         $query->bindParam(':fn', $fn);
         $query->bindParam(':ln', $ln);
         $query->bindParam(':g', $g);
-        $query->execute();
+        if ($query->execute()) {
+            echo "<script>
+                    alert('Recours successfully added!');
+                    window.location.href = 'recourseResponses.php';
+                  </script>";
+        } else {
+            echo "<script>
+                    alert('Failed to add recours. Please try again.');
+                    window.location.href = 'AddRecours.php';
+                  </script>";
+        }} catch (PDOException $e) {
+            echo "<script>
+            alert('Student not found !!');
+            window.location.href = 'AddRecours.php';
+          </script>";
+        }
+        
     }
 //update student infos function
     function updateStudent($id,$fn,$ln,$em,$gp){
+        try{
         $query = $this->db->prepare("UPDATE students SET nom=:fn, prenom=:ln, email=:em, groupe=:gp WHERE id=:id");
         $query->bindParam(':id', $id);
         $query->bindParam(':fn', $fn);
         $query->bindParam(':ln', $ln);
         $query->bindParam(':em', $em);
         $query->bindParam(':gp', $gp);
-        $query->execute();
+        if ($query->execute()) {
+            echo "<script>alert('The information changed successfully');</script>";
+            echo "<script>location.href = 'listStudents.php';</script>";
+        }else{
+            echo "<script>alert('failed');</script>";
+            echo "<script>location.href = 'updateStudent.php';</script>";
+        }} catch (PDOException $e) {
+            echo "<script>alert('Error');</script>";
+            echo "<script>location.href = 'updateStudent.php';</script>";
+        }
+        
     }
 //favorable&unfavorable set
 function status($status, $id){
+        try{
         $query = $this->db->prepare("UPDATE recours SET status = :status WHERE id = :id");
         $query->bindParam(':status', $status);
         $query->bindParam(':id', $id);
-        $query->execute();
+        if ($query->execute()) {
+            echo "<script>alert('Staut added successfully');</script>";
+            echo "<script>window.location.href = 'recourseResponses.php';</script>";
+        }else{
+            echo "<script>alert('failed');</script>";
+            echo "<script>window.location.href = 'listRecours.php';</script>";
+        }} catch (PDOException $e) {
+            echo "<script>alert('Error');</script>";
+            echo "<script>window.location.href = 'listRecours.php';</script>";
+        }
         
 }
 
 //delete student function
     function removeStudent($id){
+        try{
         $query="DELETE FROM students WHERE id=$id";
         $resault=$this->db->exec($query);
-        return $resault;
+        if ($resault) {
+            echo "<script>alert('Student removed successfully');</script>";
+            echo "<script>window.location.href = 'listStudents.php';</script>";
+        }else{
+            echo "<script>alert('failed');</script>";
+            echo "<script>window.location.href = 'listStudents.php';</script>";
+        }} catch (PDOException $e) {
+            echo "<script>alert('fError');</script>";
+            echo "<script>window.location.href = 'listStudents.php';</script>";
+        }
     }
-// //email validate function
-//     function validerEmail($email) {
-//         // Utiliser une expression régulière pour valider l'adresse e-mail
-//         $pattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
-    
-//         // Utiliser la fonction preg_match pour faire la correspondance avec l'expression régulière
-//         if (preg_match($pattern, $email)) {
-//             // L'adresse e-mail est valide
-//             return true;
-//         } else {
-//             // L'adresse e-mail n'est pas valide
-//             return false;
-//         }
-//     }
-// //name validate function
-//     function validername($name) {
-//         // Utiliser une expression régulière pour valider le nom 
-//         $pattern = '/^[a-zA-Z]$/';
 
-//         // Utiliser la fonction preg_match pour faire la correspondance avec l'expression régulière
-//         if (preg_match($pattern, $name)) {
-//             // Le nom est valide
-//             return true;
-//         } else {
-//             // Le nom n'est pas valide
-//             return false;
-//         }
-//     }
-// function search student
+
 function searchStudent($input)
 {
     $select = "SELECT * FROM students where ((nom LIKE '%$input%' ) OR (prenom LIKE '%$input%') OR ( email LIKE '%$input%@gmail.com')) ";

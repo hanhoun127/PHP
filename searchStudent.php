@@ -19,8 +19,6 @@
 <!--link to Home-->
             <a href="index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
-<!--link to Respobsible page-->
-            <li class="nav-item"><a href="responsible.php" class="nav-link">Responsible</a></li>  
 <!--link to AddStudent page-->
             <li class="nav-item"><a href="AddStudent.php" class="nav-link" aria-current="page">Add Student</a>   
             </li>

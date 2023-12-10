@@ -19,8 +19,6 @@
 <!--link to Home-->
 <a href="index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
-<!--link to student page-->
-             <li class="nav-item"><a href="Student.php" class="nav-link">Student</a></li>
 <!--link to Add recourse form-->
             <li class="nav-item">
                 <a class="nav-link"  href="AddRecours.php">Add Recourse</a>   

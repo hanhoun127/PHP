@@ -19,16 +19,6 @@
             <li class="nav-item">
 <!--link to Home-->
             <a href="index.php" class="nav-link" aria-current="page">Home</a>   
-            </li>
-<!--link to student page-->
-             <li class="nav-item"><a href="Student.php" class="nav-link active">Student</a></li>
-<!--link to Add recourse form-->
-            <li class="nav-item">
-                <a class="nav-link"  href="AddRecours.php">Add Recourse</a>   
-            </li>
-<!--link to responses of recources-->
-<li class="nav-item">
-                <a class="nav-link"  href="recourseResponses.php">Recourse Responses</a>   
             </li>   
         </ul>
         </div>
@@ -39,7 +29,27 @@
         <p>Dark</p></div>
     </div>
     </nav>
-<h1 class="row position-absolute top-50 start-50 translate-middle ">How Does The Site Work?</h1>
+
+    <div class="row position-absolute top-50 start-50 translate-middle " id="id1">
+    <div class="col-sm-6">
+        <div class="card">
+            <img src="img/add-file.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Add Recourse</h5>
+            <a href="AddRecours.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3 mb-sm-0 ">
+        <div class="card">
+            <img src="img/recours.png" class="card-img-top">
+        <div class="card-body text-center">
+            <h5 class="card-title">Recourse Responses</h5>
+            <a href="recourseResponses.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    </div>
     
 <!--switch mode function-->
     <script>

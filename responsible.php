@@ -19,19 +19,6 @@
 <!--link to Home-->
             <a href="index.php" class="nav-link" aria-current="page">Home</a>   
             </li>
-<!--link to Respobsible page-->
-            <li class="nav-item"><a href="responsible.php" class="nav-link active">Responsible</a></li>  
-<!--link to AddStudent page-->
-            <li class="nav-item"><a href="AddStudent.php" class="nav-link" aria-current="page">Add Student</a>   
-            </li>
-<!-- link to search student page  -->
-            <li class="nav-item"><a href="searchStudent.php" class="nav-link" aria-current="page">Search Student</a>   
-            </li>
-<!--link to Studentlist page-->
-            <li class="nav-item"><a href="listStudents.php" class="nav-link">Students List</a></li>          
-<!--link to Recourselist-->
-            <li class="nav-item"><a href="listRecours.php" class="nav-link" aria-current="page">Recourse List</a>   
-            </li>
 
         </ul>
         </div>
@@ -42,6 +29,44 @@
         <p>Dark</p></div>
     </div>
     </nav>
+    <div class="row position-absolute top-50 start-50 translate-middle " id="id1">
+    <div class="col-sm-3 mb-3 mb-sm-0 " style="padding:3px">
+        <div class="card">
+            <img src="img/student.png" class="card-img-top">
+        <div class="card-body text-center">
+            <h5 class="card-title">Add Student</h5>
+            <a href="AddStudent.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="padding:3px">
+        <div class="card">
+            <img src="img/search.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Search Student</h5>
+            <a href="searchStudent.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="padding:3px">
+        <div class="card">
+            <img src="img/liste.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Students List</h5>
+            <a href="listStudents.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="padding:3px">
+        <div class="card">
+            <img src="img/recours.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Recourse List</h5>
+            <a href="listRecours.php" class="btn btn-primary">Go</a>
+        </div>
+        </div>
+    </div>
+    </div>
 <!--switch mode function-->
     <script>
         function switchModes(){
