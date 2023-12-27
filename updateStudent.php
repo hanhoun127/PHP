@@ -13,7 +13,20 @@ $std=new StudentRecours();
       $ln = $_POST['lastname'];
       $em = $_POST['email'];
       $gp = $_POST['group'];
+      if(!ctype_alpha($fn) || !ctype_alpha($ln)):
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Failed to update Student ,Invalidate name!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    elseif(!is_numeric($gp)):
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Failed to update Student ,The group must be a number!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    else:
       $std->updateStudent($id,$fn,$ln,$em,$gp);
+      header('location:listStudents.php?messageUp=The information changed successfully');
+    endif;
       }
 ?> 
 <!DOCTYPE html>
@@ -27,7 +40,7 @@ $std=new StudentRecours();
     <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Add Student</title>
 </head>
-<body  class="fst-italic" data-bs-theme="dark">
+<body  class="fst-italic" data-bs-theme="light">
 <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" style="z-index:5">
     <div class="container-fluid">
@@ -52,7 +65,7 @@ $std=new StudentRecours();
     </div>
     <div class="form-check form-switch mx-4">
         <input type="checkbox" class="form-check-input p-2"
-        id="flexSwitchCheckChecked" checked onclick="switchModes()">
+        id="flexSwitchCheckChecked" onclick="switchModes()">
         <p>Dark</p></div>
     </div>
     </nav>
@@ -103,5 +116,7 @@ $std=new StudentRecours();
     }
     </script>
     <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

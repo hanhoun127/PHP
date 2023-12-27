@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Student</title>
 </head>
-<body  class="fst-italic" data-bs-theme="dark">
+<body  class="fst-italic" data-bs-theme="light">
 <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" style="z-index:5">
     <div class="container-fluid">
@@ -25,7 +25,7 @@
     </div>
     <div class="form-check form-switch me-4">
         <input type="checkbox" class="form-check-input p-2"
-        id="flexSwitchCheckChecked" checked onclick="switchModes()">
+        id="flexSwitchCheckChecked" onclick="switchModes()">
         <p>Dark</p></div>
     </div>
     </nav>

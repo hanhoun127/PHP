@@ -1,4 +1,13 @@
+<?php  
+require 'class.php';
+$std = new StudentRecours();
+ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
+    $id = isset($_POST['id']) ? $_POST['id'] : '';
+    $status = $_POST['status'];
+    $std->status($status, $id);
+}
 
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +18,7 @@
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
     <title>Recours list</title>
 </head>
-<body  class="fst-italic" data-bs-theme="dark">
+<body  class="fst-italic" data-bs-theme="light">
 <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary"style="z-index:5">
     <div class="container-fluid">
@@ -36,20 +45,11 @@
     </div>
     <div class="form-check form-switch mx-4">
         <input type="checkbox" class="form-check-input p-2"
-        id="flexSwitchCheckChecked" checked onclick="switchModes()">
+        id="flexSwitchCheckChecked" onclick="switchModes()">
         <p>Dark</p></div>
     </div>
     </nav>
-    <?php  
-require 'class.php';
-$std = new StudentRecours();
- if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add'])) {
-    $id = isset($_POST['id']) ? $_POST['id'] : '';
-    $status = $_POST['status'];
-    $std->status($status, $id);
-}
-
-?> 
+    
     <div class="container">
         <div class="row">
            <div class="col">
@@ -74,28 +74,28 @@ $std = new StudentRecours();
                          <?php
                         $data = $std->getRecourses();
                         foreach ($data as $val) {
-                        echo "
+                            echo "
                             <tr>
-                            <td>$val[nom]</td>
-                            <td>$val[prenom]</td>
-                            <td>$val[groupe]</td>
-                            <td>$val[module]</td>
-                            <td>$val[nature]</td>
-                            <td>$val[note_affiche]</td>
-                            <td>$val[note_reel]</td>
-                            <td>";?>
-                        <form method='post' action='listRecours.php'>
-                            <select class="form-select" aria-label="Default select example" name="status">
-                               <option value="favorable">favorable</option>
-                               <option value="unfavorable">unfavorable</option>
-                            </select></td>
-                           <?php echo "<input type='hidden' name='id' value='$val[id]'>"?>
-                            <td>
-                                <button class="btn btn-success" type="submit" name="add">Save</button>
-                            </td>
-                        
-                         </form></tr>
-                        <?php 
+                                <td>$val[nom]</td>
+                                <td>$val[prenom]</td>
+                                <td>$val[groupe]</td>
+                                <td>$val[module]</td>
+                                <td>$val[nature]</td>
+                                <td>$val[note_affiche]</td>
+                                <td>$val[note_reel]</td>
+                                <td>
+                                    <form method='post' action='listRecours.php'>
+                                        <select class='form-select' aria-label='Default select example' name='status'>
+                                            <option value='favorable'>favorable</option>
+                                            <option value='unfavorable'>unfavorable</option>
+                                        </select>
+                                </td>
+                                <td>
+                                    <input type='hidden' name='id' value='$val[id]'>
+                                    <button class='btn btn-success' type='submit' name='add'>Save</button>
+                                    </form>
+                                </td>
+                            </tr>";
                         }
                         ?>
                             
@@ -116,5 +116,7 @@ $std = new StudentRecours();
         element.dataset.bsTheme == "light" ? "dark" : "light" ;
     }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

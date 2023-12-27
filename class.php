@@ -53,16 +53,12 @@ function getStudent($id){
         $query->bindValue(2, $ln);
         $query->bindValue(3, $em);
         $query->bindValue(4, $gp);
-
-        if ($query->execute()) {
-            echo "<script>alert('Student added successfully');</script>";
-            echo "<script>window.location.href = 'listStudents.php';</script>";
-        }else{
-            echo "<script>alert('failed');</script>";
-            echo "<script>window.location.href = 'addStudent.php';</script>";
-        }} catch (PDOException $e) {
-            echo "<script>alert('Error');</script>";
-            echo "<script>window.location.href = 'addStudent.php';</script>";
+        $query->execute();
+    } catch (PDOException $e) {
+            echo  '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Faild to add Student
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
         }
     }
 //add Recourse fucntion
@@ -79,21 +75,16 @@ function getStudent($id){
         $query->bindParam(':fn', $fn);
         $query->bindParam(':ln', $ln);
         $query->bindParam(':g', $g);
-        if ($query->execute()) {
-            echo "<script>
-                    alert('Recours successfully added!');
-                    window.location.href = 'recourseResponses.php';
-                  </script>";
-        } else {
-            echo "<script>
-                    alert('Failed to add recours. Please try again.');
-                    window.location.href = 'AddRecours.php';
-                  </script>";
-        }} catch (PDOException $e) {
-            echo "<script>
-            alert('Student not found !!');
-            window.location.href = 'AddRecours.php';
-          </script>";
+        if($query->execute())
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        Recourse added successfully    
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    } catch (PDOException $e) {
+        echo  '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Student not found!!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
         }
         
     }
@@ -106,15 +97,12 @@ function getStudent($id){
         $query->bindParam(':ln', $ln);
         $query->bindParam(':em', $em);
         $query->bindParam(':gp', $gp);
-        if ($query->execute()) {
-            echo "<script>alert('The information changed successfully');</script>";
-            echo "<script>location.href = 'listStudents.php';</script>";
-        }else{
-            echo "<script>alert('failed');</script>";
-            echo "<script>location.href = 'updateStudent.php';</script>";
-        }} catch (PDOException $e) {
-            echo "<script>alert('Error');</script>";
-            echo "<script>location.href = 'updateStudent.php';</script>";
+        $query->execute();
+    } catch (PDOException $e) {
+            echo  '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Faild to Update informations
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
         }
         
     }
@@ -124,15 +112,17 @@ function status($status, $id){
         $query = $this->db->prepare("UPDATE recours SET status = :status WHERE id = :id");
         $query->bindParam(':status', $status);
         $query->bindParam(':id', $id);
-        if ($query->execute()) {
-            echo "<script>alert('Staut added successfully');</script>";
-            echo "<script>window.location.href = 'recourseResponses.php';</script>";
-        }else{
-            echo "<script>alert('failed');</script>";
-            echo "<script>window.location.href = 'listRecours.php';</script>";
-        }} catch (PDOException $e) {
-            echo "<script>alert('Error');</script>";
-            echo "<script>window.location.href = 'listRecours.php';</script>";
+        if($query->execute()){
+            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    Status added successfully       
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+        }
+    } catch (PDOException $e) {
+        echo  '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Faild to add status
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
         }
         
 }
@@ -140,17 +130,14 @@ function status($status, $id){
 //delete student function
     function removeStudent($id){
         try{
-        $query="DELETE FROM students WHERE id=$id";
-        $resault=$this->db->exec($query);
-        if ($resault) {
-            echo "<script>alert('Student removed successfully');</script>";
-            echo "<script>window.location.href = 'listStudents.php';</script>";
-        }else{
-            echo "<script>alert('failed');</script>";
-            echo "<script>window.location.href = 'listStudents.php';</script>";
-        }} catch (PDOException $e) {
-            echo "<script>alert('fError');</script>";
-            echo "<script>window.location.href = 'listStudents.php';</script>";
+            $query="DELETE FROM students WHERE id=$id";
+            $resault=$this->db->exec($query);
+            return $resault;
+        } catch (PDOException $e) {
+            echo  '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Faild to remove Student
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
         }
     }
 
@@ -159,7 +146,7 @@ function searchStudent($input)
 {
     $select = "SELECT * FROM students where ((nom LIKE '%$input%' ) OR (prenom LIKE '%$input%') OR ( email LIKE '%$input%@gmail.com')) ";
     $result = $this->db->query($select);
-    $ligne = $result->fetchAll(PDO::FETCH_ASSOC); // Fetch all results as associative array
+    $ligne = $result->fetchAll(PDO::FETCH_ASSOC); 
     return $ligne;
 }
     }

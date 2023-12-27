@@ -3,7 +3,25 @@ require 'class.php' ;
 $std=new StudentRecours();
 if(isset($_GET['id'])){
     $id=$_GET['id'];
-    $std->removeStudent($id);
+    if($std->removeStudent($id))
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    Student removed successfully    
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
+$message=isset($_GET['message'])?$_GET['message']:'';
+if($message){
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+          '.$message.'      
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+}
+$messageUp=isset($_GET['messageUp'])?$_GET['messageUp']:'';
+if($messageUp){
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+          '.$messageUp.'      
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
 }
 ?>
 <!DOCTYPE html>
@@ -16,7 +34,7 @@ if(isset($_GET['id'])){
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
     <title>Students list</title>
 </head>
-<body  class="fst-italic" data-bs-theme="dark">
+<body  class="fst-italic" data-bs-theme="light">
 <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary"style="z-index:5">
     <div class="container-fluid">
@@ -44,7 +62,7 @@ if(isset($_GET['id'])){
     </div>
     <div class="form-check form-switch mx-4">
         <input type="checkbox" class="form-check-input p-2"
-        id="flexSwitchCheckChecked" checked onclick="switchModes()">
+        id="flexSwitchCheckChecked" onclick="switchModes()">
         <p>Dark</p></div>
     </div>
     </nav>
@@ -92,5 +110,7 @@ if(isset($_GET['id'])){
         element.dataset.bsTheme == "light" ? "dark" : "light" ;
     }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

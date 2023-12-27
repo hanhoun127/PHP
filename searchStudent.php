@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="img/index.png" type="image/x-icon">
     <title>Search</title>
 </head>
-<body  class="fst-italic" data-bs-theme="dark">
+<body  class="fst-italic" data-bs-theme="light">
 <!--navigation bar-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" style="z-index:5">
     <div class="container-fluid">
@@ -35,7 +35,7 @@
     </div>
     <div class="form-check form-switch mx-4">
         <input type="checkbox" class="form-check-input p-2"
-        id="flexSwitchCheckChecked" checked onclick="switchModes()">
+        id="flexSwitchCheckChecked" onclick="switchModes()">
         <p>Dark</p></div>
     </div>
     </nav>
@@ -96,5 +96,7 @@
         element.dataset.bsTheme == "light" ? "dark" : "light" ;
     }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>
