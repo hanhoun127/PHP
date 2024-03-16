@@ -144,7 +144,7 @@ function status($status, $id){
 
 function searchStudent($input)
 {
-    $select = "SELECT * FROM students where ((nom LIKE '%$input%' ) OR (prenom LIKE '%$input%') OR ( email LIKE '%$input%@gmail.com')) ";
+    $select = "SELECT * FROM students where ((nom LIKE '%$input%' ) OR (prenom LIKE '%$input%') OR ( email LIKE '%$input%')) ";
     $result = $this->db->query($select);
     $ligne = $result->fetchAll(PDO::FETCH_ASSOC); 
     return $ligne;
